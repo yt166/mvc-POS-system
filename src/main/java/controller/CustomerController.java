@@ -2,6 +2,10 @@ package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXTreeTableView;
+import com.jfoenix.controls.RecursiveTreeItem;
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import com.mysql.cj.x.protobuf.MysqlxCrud;
 import db.DBConnection;
 import dto.Customerdto;
 import dto.tm.Customertm;
@@ -39,27 +43,30 @@ public class CustomerController {
     public JFXButton btnSave;
     public JFXButton btnUpdate;
     public TreeTableColumn colName;
-    public TreeTableColumn colCupid;
     public TreeTableColumn colAddress;
     public TreeTableColumn colSalary;
     public TreeTableColumn colOption;
     public JFXButton btnReload;
     public Button btnReport;
-    public TreeTableView tblCustomer;
+
+    public JFXTextField txtUpdateSalary;
+    public TreeTableColumn colId;
+    public JFXTreeTableView<Customertm> tblCustomer;
+
     private CustomerModel customerModel = new CustomerModelImpl();
 
     public void initialize(){
         generateID();
-        colCupid.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         colSalary.setCellValueFactory(new PropertyValueFactory<>("salary"));
         colOption.setCellValueFactory(new PropertyValueFactory<>("btnDelete"));
         loadCustomerTable();
 
-        tblCustomer.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) ->{
-            setData((Customertm) newValue);
-        } ));
+        tblCustomer.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) ->{
+            setData(newValue.getValue());
+        } );
     }
 
     private void setData(Customertm newValue) {
@@ -73,9 +80,8 @@ public class CustomerController {
 
     private void loadCustomerTable() {
         ObservableList<Customertm> list = FXCollections.observableArrayList();
-        List<Customerdto> dtolist = null;
         try {
-            dtolist = customerModel.allCustomers();
+            List<Customerdto> dtolist = customerModel.allCustomers();
 
             for (Customerdto dto: dtolist) {
                 Button btn = new Button("Delete");
@@ -95,10 +101,13 @@ public class CustomerController {
                 list.add(ctm);
             }
 
+            TreeItem<Customertm> treeItem = new RecursiveTreeItem<>(list, RecursiveTreeObject::getChildren);
+            tblCustomer.setRoot(treeItem);
+            tblCustomer.setShowRoot(false);
+
         } catch (SQLException |ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     private void deleteCustomer(String cusid) {
@@ -149,10 +158,30 @@ public class CustomerController {
         txtCusName.clear();
         txtCusAddress.clear();
         txtCusSalary.clear();
+        txtUpdateID.clear();
+        txtUpdateName.clear();
+        txtUpdateAddress.clear();
+        txtUpdateSalary.clear();
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
+        try {
+            boolean updated = customerModel.updateCustomer(new Customerdto(txtUpdateID.getText(),
+                    txtUpdateName.getText(),
+                    txtUpdateAddress.getText(),
+                    Double.parseDouble(txtUpdateSalary.getText())
+            ));
 
+            if(updated){
+                new Alert(Alert.AlertType.INFORMATION,"Customer Updated").show();
+                loadCustomerTable();
+                clearFields();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void btnReloadOnAction(ActionEvent actionEvent) {

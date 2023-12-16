@@ -23,11 +23,15 @@ V
 &src/main/java/model/CustomerModel.java,9\0\90d33e6b69ababcf056909df939400fe4453c982
 R
 "src/main/java/dto/Customerdto.java,8\3\83de20479315aabbe9acb300e05bc003db9d0ed0
-T
-$src/main/java/dto/tm/Cusromertm.java,9\d\9d603902c05ad6523e79a78d06d9fd1b1bfbf520
 _
 /src/main/java/model/impl/CustomerModelimpl.java,d\2\d22dfd05b2b232fa6b925a474fce6ddc903484a3
 _
 /src/main/java/model/impl/CustomerModelImpl.java,0\b\0be0bbe10c6e48eb8c96dc0e7ed2f0d10bff1b49
 T
 $src/main/java/dto/tm/Customertm.java,7\3\738e734488b99b27e8e1c1361f15e201e3ffe32f
+[
++src/main/resources/reports/itemReport.jrxml,d\c\dcd6fb74454831d1be9ecf0915e6e7b4f90b2f25
+U
+%src/main/resources/view/Customer.fxml,0\3\0366b5b2a07f153ae5e8d93ce7656c9bf2d65d09
+Q
+!src/main/resources/view/Item.fxml,0\c\0c424210f4d49daee1eca849ac1f024e285926d2
