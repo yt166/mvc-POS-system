@@ -9,7 +9,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Customertm extends RecursiveTreeObject<Customertm> {
+public class CustomerTm extends RecursiveTreeObject<CustomerTm> {
     private String cusid;
     private String cusName;
     private String cusAddress;

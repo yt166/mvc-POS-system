@@ -1,6 +1,70 @@
 
-g	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8®Å’£Å1
+g	java:S112m"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Ö“­È1
+L
+java:S3740"/Provide the parametrized type for this generic.(æö´ö8Ö“­È1
+Q
+java:S3740*"/Provide the parametrized type for this generic.(ŒĞ¶Ñøÿÿÿÿ8Ö“­È1
+Q
+java:S3740+"/Provide the parametrized type for this generic.(“¹Šüÿÿÿÿ8Ö“­È1
+L
+java:S3740,"/Provide the parametrized type for this generic.(•Ëéÿ8Ö“­È1
+L
+java:S3740-"/Provide the parametrized type for this generic.(™¼…ÿ8Ö“­È1
+L
+java:S3740."/Provide the parametrized type for this generic.(»§²8Ö“­È1
+t
+java:S1104"WMake cmbItemCode a static final constant or non-public and provide accessors if needed.(æö´ö8Ö“­È1
+z
+java:S1104 "XMake txtUpdateDes a static final constant or non-public and provide accessors if needed.(À±áìøÿÿÿÿ8Ö“­È1
+€
+java:S1104!"^Make txtUpdateUnitPrize a static final constant or non-public and provide accessors if needed.(÷–âšüÿÿÿÿ8Ö“­È1
+z
+java:S1104""XMake txtUpdateQty a static final constant or non-public and provide accessors if needed.(Åªï«ûÿÿÿÿ8Ö“­È1
+r
+java:S1104#"UMake btnUpdate a static final constant or non-public and provide accessors if needed.(§Å‰÷8Ö“­È1
+t
+java:S1104$"RMake btnAdd a static final constant or non-public and provide accessors if needed.(şÙâ€ûÿÿÿÿ8Ö“­È1
+s
+java:S1104%"VMake lblSetCode a static final constant or non-public and provide accessors if needed.(›„°²8Ö“­È1
+o
+java:S1104&"RMake txtDes a static final constant or non-public and provide accessors if needed.(Äû¾8Ö“­È1
+u
+java:S1104'"XMake txtUnitPrize a static final constant or non-public and provide accessors if needed.(¼¬Æ•8Ö“­È1
+t
+java:S1104("XMake txtQtyOnHand a static final constant or non-public and provide accessors if needed.(è¡”X8Ö“­È1
+p
+java:S1104)"SMake tblItem a static final constant or non-public and provide accessors if needed.(ŸØå¼8Ö“­È1
+u
+java:S1104*"SMake colCode a static final constant or non-public and provide accessors if needed.(ŒĞ¶Ñøÿÿÿÿ8Ö“­È1
+t
+java:S1104+"RMake colDes a static final constant or non-public and provide accessors if needed.(“¹Šüÿÿÿÿ8Ö“­È1
+u
+java:S1104,"XMake colUnitPrize a static final constant or non-public and provide accessors if needed.(•Ëéÿ8Ö“­È1
+o
+java:S1104-"RMake colQty a static final constant or non-public and provide accessors if needed.(™¼…ÿ8Ö“­È1
+r
+java:S1104."UMake colOption a static final constant or non-public and provide accessors if needed.(»§²8Ö“­È1
+x
+java:S1104/"VMake lblAddItem a static final constant or non-public and provide accessors if needed.(âÏã¥şÿÿÿÿ8Ö“­È1
+i
+java:S2095>"GUse try-with-resources or close this "Statement" in a "finally" clause.(ôÅ¹Îıÿÿÿÿ8ÊÄŞ­È1
 £
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(†ùàıÿÿÿÿ8»Å’£Å1
+java:S1186\"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Øİ²ßşÿÿÿÿ8”¯Ÿ­È1
+£
+java:S1186q"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¿˜å•øÿÿÿÿ8Ö“­È1
+£
+java:S1186t"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(»…ä«ùÿÿÿÿ8Ö“­È1
+I
+java:S1602L",Remove useless curly braces around statement(ë¹¬8£¸­È1
+M
+java:S1172\"+Remove this unused method parameter "code".(Øİ²ßşÿÿÿÿ8Ÿ¯Ÿ­È1
+O
+java:S1172`"2Remove this unused method parameter "actionEvent".(ÿ¼à«8£Ö“­È1
 T
-java:S1172"2Remove this unused method parameter "actionEvent".(•Ğ‡üÿÿÿÿ8¼Å’£Å1
+java:S1172f"2Remove this unused method parameter "actionEvent".(•Ğ‡üÿÿÿÿ8‹ì¦­È1
+[
+java:S1128">Remove this unused import 'javafx.beans.value.ChangeListener'.(¸÷Í8áÄŞ­È1
+\
+java:S1128"?Remove this unused import 'javafx.beans.value.ObservableValue'.(´œ«Å8âÄŞ­È1
+V
+java:S1128"9Remove this unused import 'java.util.function.Predicate'.(ïÍ–¶8âÄŞ­È1

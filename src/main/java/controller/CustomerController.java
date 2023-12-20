@@ -5,10 +5,9 @@ import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import com.mysql.cj.x.protobuf.MysqlxCrud;
 import db.DBConnection;
 import dto.Customerdto;
-import dto.tm.Customertm;
+import dto.tm.CustomerTm;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.CustomerModel;
@@ -28,6 +28,7 @@ import net.sf.jasperreports.view.JasperViewer;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class CustomerController {
     public AnchorPane customerPane;
@@ -51,25 +52,21 @@ public class CustomerController {
 
     public JFXTextField txtUpdateSalary;
     public TreeTableColumn colId;
-    public JFXTreeTableView<Customertm> tblCustomer;
+    public JFXTreeTableView<CustomerTm> tblCustomer;
 
     private CustomerModel customerModel = new CustomerModelImpl();
 
     public void initialize(){
         generateID();
-        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
-        colSalary.setCellValueFactory(new PropertyValueFactory<>("salary"));
-        colOption.setCellValueFactory(new PropertyValueFactory<>("btnDelete"));
+        colId.setCellValueFactory(new TreeItemPropertyValueFactory<>("cusid"));
+        colName.setCellValueFactory(new TreeItemPropertyValueFactory<>("cusName"));
+        colAddress.setCellValueFactory(new TreeItemPropertyValueFactory<>("cusAddress"));
+        colSalary.setCellValueFactory(new TreeItemPropertyValueFactory<>("cusSalary"));
+        colOption.setCellValueFactory(new TreeItemPropertyValueFactory<>("btn"));
         loadCustomerTable();
-
-        tblCustomer.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) ->{
-            setData(newValue.getValue());
-        } );
     }
 
-    private void setData(Customertm newValue) {
+    private void setData(CustomerTm newValue) {
         if(newValue!=null){
             lblSetId.setText(newValue.getCusid());
             txtCusName.setText(newValue.getCusName());
@@ -79,14 +76,14 @@ public class CustomerController {
     }
 
     private void loadCustomerTable() {
-        ObservableList<Customertm> list = FXCollections.observableArrayList();
+        ObservableList<CustomerTm> list = FXCollections.observableArrayList();
         try {
             List<Customerdto> dtolist = customerModel.allCustomers();
 
             for (Customerdto dto: dtolist) {
                 Button btn = new Button("Delete");
 
-                Customertm ctm = new Customertm(
+                CustomerTm ctm = new CustomerTm(
                         dto.getCusID(),
                         dto.getCusName(),
                         dto.getCusAddress(),
@@ -101,7 +98,7 @@ public class CustomerController {
                 list.add(ctm);
             }
 
-            TreeItem<Customertm> treeItem = new RecursiveTreeItem<>(list, RecursiveTreeObject::getChildren);
+            TreeItem<CustomerTm> treeItem = new RecursiveTreeItem<>(list, RecursiveTreeObject::getChildren);
             tblCustomer.setRoot(treeItem);
             tblCustomer.setShowRoot(false);
 
@@ -115,9 +112,9 @@ public class CustomerController {
             boolean deleted = customerModel.deleteCustomer(cusid);
 
             if(deleted){
-                new Alert(Alert.AlertType.INFORMATION,"Customer Deleted Successfully");
+                new Alert(Alert.AlertType.INFORMATION,"Customer Deleted Successfully").show();
             }else{
-                new Alert(Alert.AlertType.INFORMATION,"Something Wents Wrong");
+                new Alert(Alert.AlertType.INFORMATION,"Something Wents Wrong").show();
             }
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);

@@ -41,6 +41,7 @@ public class CustomerModelImpl implements CustomerModel {
     public boolean deleteCustomer(String id) throws SQLException, ClassNotFoundException {
         String sql ="DELETE FROM Customer WHERE id=?";
         PreparedStatement preparedStatement = DBConnection.getInstance().getConnection().prepareStatement(sql);
+        preparedStatement.setString(1,id);
         return preparedStatement.executeUpdate()>0;
     }
 

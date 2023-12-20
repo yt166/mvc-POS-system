@@ -35,3 +35,15 @@ U
 %src/main/resources/view/Customer.fxml,0\3\0366b5b2a07f153ae5e8d93ce7656c9bf2d65d09
 Q
 !src/main/resources/view/Item.fxml,0\c\0c424210f4d49daee1eca849ac1f024e285926d2
+P
+ src/main/java/dto/tm/itemTm.java,2\7\27b35edf7089761572b5b0d0648ce7e20800c796
+T
+$src/main/java/dto/tm/CustomerTm.java,2\a\2a0edce3160840b5e1dff3a221d2fba22c0b3f67
+P
+ src/main/java/dto/tm/ItemTm.java,9\b\9bcbd3a396619ca96463cd87f096ec09b0b2ae8f
+N
+src/main/java/dto/Itemdto.java,2\4\24ab9d072cc1da254af9becdc9c839b1a207efb2
+R
+"src/main/java/model/ItemModel.java,6\4\64e26bb1992ad0f7e3462ed7202d9066fa6e9fb5
+[
++src/main/java/model/impl/ItemModelImpl.java,4\3\4393c95c32ff3e9f6f528a5ea2ebf429a4188d58
