@@ -57,7 +57,7 @@
       <Label layoutX="12.0" layoutY="205.0" text="Unit Prize :-" textFill="WHITE" />
       <Label layoutX="14.0" layoutY="249.0" text="Qty On Hand :-" textFill="WHITE" />
       <JFXComboBox fx:id="cmbItemCode" layoutX="110.0" layoutY="97.0" prefHeight="31.0" prefWidth="109.0" />
-      <JFXTextField fx:id="txtUpdateDes" layoutX="13.0" layoutY="155.0" prefHeight="31.0" prefWidth="205.0" style="-fx-font: #FFFFFF;" unFocusColor="#686464" />
+      <JFXTextField fx:id="txtUpdateDes" layoutX="13.0" layoutY="155.0" prefHeight="31.0" prefWidth="205.0"  unFocusColor="#686464" />
       <JFXTextField fx:id="txtUpdateUnitPrize" layoutX="106.0" layoutY="200.0" prefHeight="31.0" prefWidth="109.0" />
       <JFXTextField fx:id="txtUpdateQty" layoutX="140.0" layoutY="244.0" prefHeight="31.0" prefWidth="73.0" />
       <JFXButton fx:id="btnUpdate" layoutX="114.0" layoutY="300.0" onAction="#btnUpdateOnAction" style="-fx-background-color: #664526;" text="Update Item" textFill="WHITE" />

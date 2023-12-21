@@ -1,6 +1,7 @@
 package model.impl;
 
 import db.DBConnection;
+import dto.Customerdto;
 import dto.Itemdto;
 import model.ItemModel;
 
@@ -12,19 +13,38 @@ import java.util.List;
 
 public class ItemModelImpl implements ItemModel {
     @Override
-    public boolean addItem(Itemdto dto) {
+    public boolean addItem(Itemdto dto) throws SQLException, ClassNotFoundException {
+        String sql ="INSERT INTO Customer VALUE (?,?,?,?)";
 
-        return false;
+        PreparedStatement preparedStatement = DBConnection.getInstance().getConnection().prepareStatement(sql);
+        preparedStatement.setString(1, dto.getItemCode());
+        preparedStatement.setString(2, dto.getDescription());
+        preparedStatement.setDouble(3,dto.getUnitPrize());
+        preparedStatement.setInt(4,dto.getQtyOnHand());
+
+        return preparedStatement.executeUpdate()>0;
     }
 
     @Override
-    public boolean updateItem(Itemdto dto) {
-        return false;
+    public boolean updateItem(Itemdto dto) throws SQLException, ClassNotFoundException {
+
+        String sql ="UPDATE Customer SET description=?, unitPrice =?, qtyOnHand =?  WHERE id=?  ";
+        PreparedStatement preparedStatement = DBConnection.getInstance().getConnection().prepareStatement(sql);
+        preparedStatement.setString(4,dto.getItemCode());
+        preparedStatement.setString(1,dto.getDescription());
+        preparedStatement.setDouble(2,dto.getUnitPrize());
+        preparedStatement.setInt(3,dto.getQtyOnHand());
+
+        return preparedStatement.executeUpdate()>0;
     }
 
     @Override
-    public boolean deleteItem(String itemCode) {
-        return false;
+    public boolean deleteItem(String itemCode) throws SQLException, ClassNotFoundException {
+        String sql="DELETE FROM item WHERE code =?";
+        PreparedStatement preparedStatement = DBConnection.getInstance().getConnection().prepareStatement(sql);
+        preparedStatement.setString(1,itemCode);
+
+        return preparedStatement.executeUpdate()>0;
     }
 
     @Override
@@ -59,5 +79,20 @@ public class ItemModelImpl implements ItemModel {
             ));
         }
         return list;
+    }
+
+    @Override
+    public Itemdto lastItem() throws SQLException, ClassNotFoundException {
+        String sql ="SELECT * FROM item ORDER BY code DESC LIMIT 1";
+        PreparedStatement preparedStatement = DBConnection.getInstance().getConnection().prepareStatement(sql);
+        ResultSet set = preparedStatement.executeQuery();
+
+        if(set.next()){
+            return new Itemdto(set.getString(1),
+                    set.getString(2),
+                    set.getDouble(3),
+                    set.getInt(4));
+        }
+        return null;
     }
 }
