@@ -1,15 +1,15 @@
 
 q
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ŸÏ“¯úÿÿÿÿ8ê·ôÙÈ1
+q
 java:S2095 "OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ŸÏ“¯úÿÿÿÿ8ê·ôÙÈ1
 q
-java:S2095W"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ŸÏ“¯úÿÿÿÿ8ê·ôÙÈ1
-q
 java:S2095,"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ŸÏ“¯úÿÿÿÿ8ê·ôÙÈ1
-l
-java:S2095G"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ìû—8ê·ôÙÈ1
 q
-java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ŸÏ“¯úÿÿÿÿ8ê·ôÙÈ1
+java:S2095W"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ŸÏ“¯úÿÿÿÿ8ê·ôÙÈ1
 l
 java:S20955"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ìû—8ê·ôÙÈ1
+l
+java:S2095G"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ìû—8ê·ôÙÈ1
 N
 java:S1128",Remove this unused import 'dto.Customerdto'.(§æÚ²øÿÿÿÿ8©¤´ÚÈ1

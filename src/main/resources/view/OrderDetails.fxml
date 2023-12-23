@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controller.OrderDetailsController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane fx:id="OrderDetailPane" prefHeight="368.0" prefWidth="632.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderDetailsController">
+   <children>
+      <ImageView fitHeight="387.0" fitWidth="291.0" layoutX="327.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/images.jpeg" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="14.0" layoutY="14.0" prefHeight="31.0" prefWidth="99.0" text="Back" />
+      <Label layoutX="21.0" layoutY="60.0" text="Search Order :-" />
+      <JFXTextField layoutX="151.0" layoutY="55.0" prefHeight="31.0" prefWidth="131.0" />
+      <Label layoutX="21.0" layoutY="115.0" text="Item Code :-" />
+      <Label layoutX="151.0" layoutY="115.0" text="0000" />
+      <Label layoutX="21.0" layoutY="166.0" text="Qty :-" />
+      <Label layoutX="151.0" layoutY="166.0" text="00" />
+      <Label layoutX="21.0" layoutY="212.0" text="Unit Prize :-" />
+      <Label layoutX="151.0" layoutY="212.0" text="00.00" />
+   </children>
 </AnchorPane>
